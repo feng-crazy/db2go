@@ -109,14 +109,16 @@ func main() {
 	}
 }
 func checkFlagParse(port int, user, pwd, dbname, driver string) string {
-	if port <= 0 {
-		return fmt.Sprintf("错误：port 必填，程序退出...")
-	}
-	if user == "" {
-		return fmt.Sprintf("错误：user 必填，程序退出...")
-	}
-	if pwd == "" {
-		return fmt.Sprintf("错误：pwd 必填，程序退出...")
+	if driver != "sqlite" {
+		if port <= 0 {
+			return fmt.Sprintf("错误：port 必填，程序退出...")
+		}
+		if user == "" {
+			return fmt.Sprintf("错误：user 必填，程序退出...")
+		}
+		if pwd == "" {
+			return fmt.Sprintf("错误：pwd 必填，程序退出...")
+		}
 	}
 	if dbname == "" {
 		return fmt.Sprintf("错误：dbname 必填，程序退出...")

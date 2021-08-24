@@ -8,6 +8,7 @@ import (
 
 	"github.com/yishuihanj/db2go/mysql"
 	"github.com/yishuihanj/db2go/pgsql"
+	"github.com/yishuihanj/db2go/sqlite"
 )
 
 type SqlInterface interface {
@@ -24,6 +25,7 @@ func init() {
 	driverMap = make(map[string]SqlInterface, 0)
 	driverMap["mysql"] = &mysql.MySql{}
 	driverMap["pgsql"] = &pgsql.PostgresSql{}
+	driverMap["sqlite"] = &sqlite.Sqlite{}
 }
 
 func SelectDriver(driver string) (SqlInterface, error) {
