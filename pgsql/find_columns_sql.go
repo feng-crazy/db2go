@@ -15,9 +15,7 @@ CASE
 			pg_attrdef ad 
 		WHERE
 			ad.adrelid = A.attrelid 
-			AND ad.adnum = A.attnum 
-			AND ad.adsrc = 'nextval(''' || ( pg_get_serial_sequence ( A.attrelid :: regclass :: TEXT, A.attname ) ) :: regclass || '''::regclass)' 
-			) THEN
+			AND ad.adnum = A.attnum) THEN
 		CASE
 				A.atttypid 
 				WHEN 'int' :: regtype THEN
